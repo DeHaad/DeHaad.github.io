@@ -8,6 +8,35 @@
   <title>Quyosh Tizimi Tadqiqotchisi</title>
 </head>
 <body>
+  <script>
+    // Audio obyektini yaratish
+    const spaceMusic = new Audio('space-bg.mp3');
+    spaceMusic.loop = true; // Musiqa tugasa qaytadan boshlanadi
+    spaceMusic.volume = 0.4; // Ovoz balandligi (0.0 dan 1.0 gacha)
+
+    // Saytga birinchi marta bosilganda musiqani ishga tushirish
+    window.addEventListener('click', () => {
+        if (spaceMusic.paused) {
+            spaceMusic.play();
+        }
+    }, { once: true }); // Faqat bir marta ishlaydi
+
+    // Sayyoralar tanlanganda kichik "click" ovozi (ixtiyoriy)
+    const planets = document.querySelectorAll('input[name="planet"]');
+    const clickSound = new Audio('https://www.soundjay.com/buttons/sounds/button-16.mp3');
+    clickSound.volume = 0.2;
+
+    planets.forEach(planet => {
+        planet.addEventListener('change', () => {
+            clickSound.play();
+        });
+    });
+</script>
+  <div class="music-waves">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
   <h1 class='logo'>
     Quyosh tizimi
     <span>Sayyoralar</span>
