@@ -2291,3 +2291,77 @@ body .panel p {
     to { height: 20px; }
 }
 }
+/* =========================
+   MOBILE RESPONSIVE FIX
+========================= */
+
+html,
+body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+}
+
+/* Katta planetalarni kichraytirish */
+@media screen and (max-width:768px){
+
+    body .solar{
+        transform: rotatex(-15deg) scale(0.45);
+        transform-origin:center center;
+    }
+
+    body .solar_systm .planet{
+        width:700px;
+        height:700px;
+        bottom:-520px;
+        background-size:700px auto !important;
+    }
+
+    body .overlay{
+        width:900px;
+        left:-120px;
+        top:-120px;
+    }
+
+    /* Menu joylashuvi */
+    body label.menu{
+        left:15px;
+        transform:scale(0.85);
+        transform-origin:left center;
+    }
+
+    /* Logo */
+    body .logo{
+        top:15px;
+        font-size:11px;
+        padding:0 10px;
+    }
+
+    body .logo span{
+        font-size:10px;
+    }
+
+    /* Planet text */
+    body .solar_systm .planet .moon h2{
+        font-size:22px;
+    }
+
+    body .solar_systm .planet .moon h3{
+        font-size:12px;
+    }
+
+}
+
+/* Juda kichik telefonlar */
+@media screen and (max-width:480px){
+
+    body .solar{
+        transform: rotatex(-15deg) scale(0.33);
+    }
+
+    body label.menu{
+        transform:scale(0.7);
+        left:5px;
+    }
+
+}
