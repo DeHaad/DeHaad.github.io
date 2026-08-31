@@ -1,300 +1,780 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-  <link rel="stylesheet" href="style.css">
-  <title>Quyosh Tizimi Tadqiqotchisi</title>
+  <title>Ali Akbar Junaydullayev — Digital Economy × Software × AI</title>
+  
+  <!-- Primary SEO Metadata -->
+  <meta name="description" content="Personal portfolio of Ali Akbar Junaydullayev — Digital Economy specialist, Software Developer, AI/Automation Builder, and Digital Product creator.">
+  <meta name="keywords" content="Ali Akbar Junaydullayev, DeHaad, Software Engineer, Python, FastAPI, Next.js, AI Automation, Telegram Bot, CrosspostBot, Uzbekistan">
+  <meta name="author" content="Ali Akbar Junaydullayev">
+  <link rel="canonical" href="https://junaydullayev.uz/">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://junaydullayev.uz/">
+  <meta property="og:title" content="Ali Akbar Junaydullayev — Digital Economy × Software × AI">
+  <meta property="og:description" content="Architecting intelligent digital products, multi-platform automation engines, and high-performance cloud applications.">
+  <meta property="og:site_name" content="Ali Akbar Portfolio">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ali Akbar Junaydullayev — Digital Economy × Software × AI">
+  <meta name="twitter:description" content="Architecting intelligent digital products, multi-platform automation engines, and high-performance cloud applications.">
+
+  <!-- Favicon (Prismatic Glass SVG) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><polygon points='16,2 30,26 2,26' fill='none' stroke='%2338bdf8' stroke-width='2.5'/><polygon points='16,8 26,24 6,24' fill='none' stroke='%23a855f7' stroke-width='1.5'/><circle cx='16' cy='18' r='3' fill='%23dfb15b'/></svg>">
+
+  <!-- Premium Typography: Syne, Plus Jakarta Sans, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ali Akbar Junaydullayev",
+    "url": "https://junaydullayev.uz",
+    "jobTitle": "Software Developer & Digital Economy Specialist",
+    "sameAs": [
+      "https://github.com/DeHaad",
+      "https://t.me/junaydullayev"
+    ],
+    "knowsAbout": [
+      "FastAPI",
+      "Python",
+      "Next.js",
+      "TypeScript",
+      "PostgreSQL",
+      "Prisma ORM",
+      "Telegram Bot API",
+      "Social Media Automation",
+      "AWS S3",
+      "Generative AI"
+    ]
+  }
+  </script>
 </head>
 <body>
-  <script>
-    // Audio obyektini yaratish
-    const spaceMusic = new Audio('space-bg.mp3');
-    spaceMusic.loop = true; // Musiqa tugasa qaytadan boshlanadi
-    spaceMusic.volume = 0.4; // Ovoz balandligi (0.0 dan 1.0 gacha)
 
-    // Saytga birinchi marta bosilganda musiqani ishga tushirish
-    window.addEventListener('click', () => {
-        if (spaceMusic.paused) {
-            spaceMusic.play();
-        }
-    }, { once: true }); // Faqat bir marta ishlaydi
+  <!-- =========================================================================
+       1. SITE HEADER & NAVIGATION
+       ========================================================================= -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <a href="#hero" class="logo-wrap" aria-label="Ali Akbar Homepage">
+        <span class="logo-text">ALI AKBAR</span>
+        <span class="logo-tag">/ DEHAAD</span>
+      </a>
 
-    // Sayyoralar tanlanganda kichik "click" ovozi (ixtiyoriy)
-    const planets = document.querySelectorAll('input[name="planet"]');
-    const clickSound = new Audio('https://www.soundjay.com/buttons/sounds/button-16.mp3');
-    clickSound.volume = 0.2;
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <a href="#about" class="nav-link">PHILOSOPHY</a>
+        <a href="#featured-project" class="nav-link">FEATURED</a>
+        <a href="#work" class="nav-link">PROJECTS</a>
+        <a href="#skills" class="nav-link">STACK</a>
+        <a href="#lab" class="nav-link">LAB</a>
+        <a href="#journey" class="nav-link">JOURNEY</a>
+        <a href="#contact" class="nav-link">CONTACT</a>
+      </nav>
 
-    planets.forEach(planet => {
-        planet.addEventListener('change', () => {
-            clickSound.play();
-        });
-    });
-</script>
-  <div class="music-waves">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-  <h1 class='logo'>
-    Quyosh tizimi
-    <span>Sayyoralar</span>
-  </h1>
+      <!-- Header Actions: Sound Wave Controller & Mobile Trigger -->
+      <div class="header-actions">
+        <button class="sound-toggle-btn" id="sound-toggle" type="button" aria-pressed="false" aria-label="Toggle ambient soundtrack">
+          <div class="sound-wave-bars" aria-hidden="true">
+            <span class="sound-wave-bar"></span>
+            <span class="sound-wave-bar"></span>
+            <span class="sound-wave-bar"></span>
+          </div>
+          <span class="sound-btn-text">SOUND: OFF</span>
+        </button>
 
-  <!-- Menyu qismi: Sayyoralarni tanlash -->
-  <input class='planet9' id='pluto' type='radio' name='planet'>
-  <label class='menu pluto' for='pluto'>
-    <div class='preview'></div>
-    <div class='info'>
-      <h2><div class='pip'></div>Pluton</h2>
-      <h3>39.5 AB</h3>
-    </div>
-  </label>
-
-  <input class='planet8' id='neptune' type='radio' name='planet'>
-  <label class='menu neptune' for='neptune'>
-    <div class='preview'></div>
-    <div class='info'>
-      <h2><div class='pip'></div>Neptun</h2>
-      <h3>30.06 AB</h3>
-    </div>
-  </label>
-
-  <input class='planet7' id='uranus' type='radio' name='planet'>
-  <label class='menu uranus' for='uranus'>
-    <div class='preview'></div>
-    <div class='info'>
-      <h2><div class='pip'></div>Uran</h2>
-      <h3>19.18 AB</h3>
-    </div>
-  </label>
-
-  <input class='planet6' id='saturn' type='radio' name='planet'>
-  <label class='menu saturn' for='saturn'>
-    <div class='preview'></div>
-    <div class='info'>
-      <h2><div class='pip'></div>Saturn</h2>
-      <h3>9.539 AB</h3>
-    </div>
-  </label>
-
-  <input class='planet5' id='jupiter' type='radio' name='planet'>
-  <label class='jupiter menu' for='jupiter'>
-    <div class='preview'></div>
-    <div class='info'>
-      <h2><div class='pip'></div>Yupiter</h2>
-      <h3>5.203 AB</h3>
-    </div>
-  </label>
-
-  <input class='planet4' id='mars' type='radio' name='planet'>
-  <label class='mars menu' for='mars'>
-    <div class='preview'></div>
-    <div class='info'>
-      <h2><div class='pip'></div>Mars</h2>
-      <h3>1.524 AB</h3>
-    </div>
-  </label>
-
-  <input class='planet3' id='earth' type='radio' name='planet' checked='checked'>
-  <label class='earth menu' for='earth'>
-    <div class='preview'></div>
-    <div class='info'>
-      <h2><div class='pip'></div>Yer</h2>
-      <h3>1 AB</h3>
-    </div>
-  </label>
-
-  <input class='planet2' id='venus' type='radio' name='planet'>
-  <label class='menu venus' for='venus'>
-    <div class='preview'></div>
-    <div class='info'>
-      <h2><div class='pip'></div>Venera</h2>
-      <h3>0.723 AB</h3>
-    </div>
-  </label>
-
-  <input class='planet1' id='mercury' type='radio' name='planet'>
-  <label class='menu mercury' for='mercury'>
-    <div class='preview'></div>
-    <div class='info'>
-      <h2><div class='pip'></div>Merkuriy</h2>
-      <h3>0.39 AB</h3>
-    </div>
-  </label>
-
-  <!-- Markaziy animatsiya qismi -->
-  <div class='solar'>
-    <!-- Merkuriy -->
-    <div class='solar_systm'>
-      <div class='mercury planet'>
-        <div class='mercury planet_description'>
-          <h2>Sayyora</h2>
-          <h1>Merkuriy</h1>
-          <p>Quyoshga eng yaqin sayyora. U Quyosh atrofida barcha sayyoralardan tezroq aylanadi, shuning uchun rimliklar uni o'zlarining tezkor xabarchi xudosi sharafiga nomlashgan.</p>
-          <label for='readMercury'><a>Batafsil<span>...</span></a></label>
-        </div>
-        <div class='overlay'></div>
+        <button class="mobile-menu-btn" id="mobile-menu-btn" type="button" aria-expanded="false" aria-label="Toggle mobile menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </div>
+  </header>
 
-    <!-- Venera -->
-    <div class='solar_systm'>
-      <div class='planet venus'>
-        <div class='planet_description venus'>
-          <h2>Sayyora</h2>
-          <h1>Venera</h1>
-          <p>Rim muhabbat va go'zallik ma'budasi sharafiga nomlangan. Qadimgi davrlarda Venera ko'pincha ikki xil yulduz - tong yulduzi va oqshom yulduzi deb hisoblangan.</p>
-          <label for='readVenus'><a>Batafsil<span>...</span></a></label>
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <nav class="mobile-nav-list">
+      <a href="#hero" class="mobile-nav-link">HOME</a>
+      <a href="#about" class="mobile-nav-link">PHILOSOPHY</a>
+      <a href="#featured-project" class="mobile-nav-link">FEATURED WORK</a>
+      <a href="#work" class="mobile-nav-link">SELECTED PROJECTS</a>
+      <a href="#skills" class="mobile-nav-link">TECH MATRIX</a>
+      <a href="#lab" class="mobile-nav-link">AI LAB</a>
+      <a href="#journey" class="mobile-nav-link">JOURNEY</a>
+      <a href="#contact" class="mobile-nav-link">CONTACT</a>
+    </nav>
+    <div class="mobile-menu-footer">
+      <p class="badge-meta"><span class="dot-indicator"></span> LOC: TASHKENT, UZBEKISTAN</p>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <!-- =========================================================================
+         2. HERO SECTION (CINEMATIC 3D OPTICAL GLASS)
+         ========================================================================= -->
+    <section class="hero-section" id="hero">
+      <div id="hero-canvas-container"></div>
+
+      <div class="container hero-content">
+        <div class="hero-meta-badge">
+          <span class="badge-meta">
+            <span class="dot-indicator"></span>
+            DIGITAL ECONOMY × SOFTWARE ARCHITECTURE × AI SYSTEMS
+          </span>
         </div>
-        <div class='overlay'></div>
+
+        <h1 class="hero-title-main">
+          ALI AKBAR <br>
+          <span class="text-gradient">JUNAYDULLAYEV</span>
+        </h1>
+
+        <div class="hero-tagline">
+          Building Autonomous Digital Products, Cloud Pipelines & Intelligent Systems
+        </div>
+
+        <p class="hero-lead-desc">
+          Specialist in Digital Economy frameworks, backend architecture, multi-platform media automation, and AI-driven platforms. Crafting resilient cloud systems that connect technology with scalable utility.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#work" class="btn-primary">
+            <span>EXPLORE SELECTED WORK</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+          <a href="#about" class="btn-secondary">
+            <span>THE PHILOSOPHY</span>
+          </a>
+        </div>
+
+        <div class="hero-tech-row">
+          <span class="hero-tech-pill">Python</span>
+          <span class="hero-tech-pill">FastAPI</span>
+          <span class="hero-tech-pill">Next.js 14</span>
+          <span class="hero-tech-pill">TypeScript</span>
+          <span class="hero-tech-pill">PostgreSQL / Prisma</span>
+          <span class="hero-tech-pill">Telegram Bot API</span>
+          <span class="hero-tech-pill">AWS S3</span>
+        </div>
+      </div>
+
+      <!-- Hero Bottom Editorial Meta Bar -->
+      <div class="hero-bottom-bar">
+        <div class="container hero-bottom-inner">
+          <div>01 / SCROLL TO DISCOVER ARCHITECTURE</div>
+          <div>5+ VERIFIED PRODUCTION WORKFLOWS · 100K+ API CALLS AUTOMATED</div>
+          <div>LOC: TASHKENT, UZBEKISTAN (UTC+5)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         3. INTRO / PHILOSOPHY SECTION
+         ========================================================================= -->
+    <section class="section-space" id="about">
+      <div class="container">
+        <div class="section-heading-wrap">
+          <span class="section-label">02 / PHILOSOPHY & CAPABILITY</span>
+          <h2 class="section-title">Where Code Meets Digital Economics.</h2>
+          <p class="section-subtitle">
+            Bridging the gap between software engineering, digital market mechanics, and artificial intelligence to build autonomous, high-impact systems.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-left-col">
+            <p class="about-statement">
+              "Great software is not just written code; it is an economic leverage engine that eliminates manual repetition, orchestrates distributed workflows, and delivers seamless intelligence."
+            </p>
+            <p class="about-bio-text">
+              My engineering approach unites rigorous backend design with digital product mechanics. From engineering multi-platform content pipelines that automate distribution across YouTube, Instagram, and TikTok, to building full-stack AI evaluation platforms for international certifications, every project is constructed for reliability, scalability, and measurable value.
+            </p>
+
+            <div class="about-stats-grid">
+              <div class="stat-box">
+                <div class="stat-number" data-target="5" data-suffix="+">05+</div>
+                <div class="stat-label">Core Production Architectures</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-number" data-target="100" data-suffix="%">100%</div>
+                <div class="stat-label">Verified Real Codebases</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-number" data-target="3" data-suffix="+">03+</div>
+                <div class="stat-label">Multi-Platform APIs Integrated</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-number" data-target="24" data-suffix="/7">24/7</div>
+                <div class="stat-label">Autonomous Cloud Workflows</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pillars-list">
+            <div class="pillar-card">
+              <div class="pillar-header">
+                <span class="pillar-num">01.</span>
+                <h3 class="pillar-title">Software & Cloud Architecture</h3>
+              </div>
+              <p class="pillar-desc">
+                High-concurrency backend services using FastAPI and Python, asynchronous task workers, PostgreSQL/Prisma ORM data layers, Docker containerization, and AWS S3 object storage pipelines.
+              </p>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-header">
+                <span class="pillar-num">02.</span>
+                <h3 class="pillar-title">Multi-Platform Automation</h3>
+              </div>
+              <p class="pillar-desc">
+                Autonomous media routing and distribution engines. Synchronizing content across YouTube Shorts, Instagram Reels, TikTok, and Telegram with OAuth 2.0 token vaults and rate-limit managers.
+              </p>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-header">
+                <span class="pillar-num">03.</span>
+                <h3 class="pillar-title">AI & Intelligent Products</h3>
+              </div>
+              <p class="pillar-desc">
+                Integrating large language models for real-time exam grading (Telc CEFR standards), Telegram Mini Apps with unified Next.js 14 backends, and procedural interactive WebGL interfaces.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         4. FEATURED PROJECT (CROSSPOSTBOT)
+         ========================================================================= -->
+    <section class="section-space" id="featured-project">
+      <div class="container">
+        <div class="section-heading-wrap">
+          <span class="section-label">03 / FLAGSHIP SPOTLIGHT</span>
+          <h2 class="section-title">CROSSPOSTBOT</h2>
+          <p class="section-subtitle">
+            "Automating the journey from one piece of content to multiple platforms."
+          </p>
+        </div>
+
+        <div class="featured-showcase-box">
+          <div class="featured-meta-row">
+            <span class="badge-meta"><span class="dot-indicator"></span> CLOUD & SOCIAL MEDIA AUTOMATION</span>
+            <span class="badge-meta">STATUS: ACTIVE INGENIOUS PIPELINE</span>
+          </div>
+
+          <h3 class="featured-title">Autonomous Multi-Platform Distribution</h3>
+          <p class="featured-tagline">
+            CrosspostBot solves creator friction by receiving video content via a secure Telegram Bot interface, transcoding metadata and staging media on AWS S3, and publishing synchronously to YouTube Shorts, Instagram Reels, and TikTok with zero manual steps.
+          </p>
+
+          <!-- Interactive Pipeline Inspector -->
+          <div class="pipeline-inspector-wrap">
+            <div class="pipeline-nodes-grid">
+              <button type="button" class="pipeline-node active" data-step="ingest">
+                <span class="pipeline-node-step">STAGE 01</span>
+                <span class="pipeline-node-name">Telegram Ingestion</span>
+              </button>
+              <button type="button" class="pipeline-node" data-step="worker">
+                <span class="pipeline-node-step">STAGE 02</span>
+                <span class="pipeline-node-name">Async Transcoder</span>
+              </button>
+              <button type="button" class="pipeline-node" data-step="storage">
+                <span class="pipeline-node-step">STAGE 03</span>
+                <span class="pipeline-node-name">AWS S3 & OAuth Vault</span>
+              </button>
+              <button type="button" class="pipeline-node" data-step="dispatch">
+                <span class="pipeline-node-step">STAGE 04</span>
+                <span class="pipeline-node-name">Multi-API Dispatch</span>
+              </button>
+            </div>
+
+            <div class="pipeline-detail-card">
+              <h4 class="pipeline-step-title" id="pipeline-step-title">01 / Ingestion & Trigger</h4>
+              <p class="pipeline-step-desc" id="pipeline-step-desc">
+                High-speed media reception via private Telegram bot or authenticated REST endpoint. Extracts media headers, generates a unique job UUID, and queues tasks asynchronously.
+              </p>
+              <div class="pipeline-step-tech" id="pipeline-step-tech">
+                Telegram Bot API · aiogram 3 · FastAPI Async Task
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 2.5rem; display: flex; gap: 1.25rem; flex-wrap: wrap;">
+            <button type="button" class="btn-primary" onclick="openProjectModal('crosspostbot')">
+              <span>VIEW FULL ARCHITECTURE SPEC</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </button>
+            <a href="https://github.com/DeHaad" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+              <span>GITHUB REPOSITORY</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         5. SELECTED WORK GALLERY
+         ========================================================================= -->
+    <section class="section-space" id="work">
+      <div class="container">
+        <div class="section-heading-wrap">
+          <span class="section-label">04 / SELECTED WORK</span>
+          <h2 class="section-title">Engineered for Scale, Speed & Impact.</h2>
+          <p class="section-subtitle">
+            A curated portfolio of verified production systems, educational platforms, Telegram bots, and AI experiments.
+          </p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="filter-tabs-row" role="tablist" aria-label="Project Categories">
+          <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">ALL PROJECTS</button>
+          <button class="filter-btn" data-filter="automation" role="tab" aria-selected="false">AUTOMATION</button>
+          <button class="filter-btn" data-filter="fullstack-ai" role="tab" aria-selected="false">FULL-STACK & AI</button>
+          <button class="filter-btn" data-filter="telegram" role="tab" aria-selected="false">TELEGRAM ECOSYSTEM</button>
+          <button class="filter-btn" data-filter="experiments" role="tab" aria-selected="false">EXPERIMENTS</button>
+        </div>
+
+        <!-- Project Cards Grid (Populated dynamically from js/projects-data.js) -->
+        <div class="projects-grid" id="projects-grid"></div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         6. SKILLS & TECHNOLOGY MATRIX
+         ========================================================================= -->
+    <section class="section-space" id="skills">
+      <div class="container">
+        <div class="section-heading-wrap">
+          <span class="section-label">05 / TECHNOLOGY MATRIX</span>
+          <h2 class="section-title">Modern Stack. Resilient Foundations.</h2>
+          <p class="section-subtitle">
+            Curated tools and engineering standards backed by actual project implementation.
+          </p>
+        </div>
+
+        <div class="skills-matrix-grid">
+          <!-- 1. Languages -->
+          <div class="skill-group">
+            <h3 class="skill-group-title">
+              <span class="group-icon-dot"></span>
+              Development & Languages
+            </h3>
+            <div class="skill-pills-wrap">
+              <span class="skill-pill">Python 3</span>
+              <span class="skill-pill">TypeScript</span>
+              <span class="skill-pill">JavaScript (ES6+)</span>
+              <span class="skill-pill">SQL</span>
+              <span class="skill-pill">HTML5 & CSS3</span>
+              <span class="skill-pill">Bash / Shell</span>
+            </div>
+          </div>
+
+          <!-- 2. Frameworks & Backend -->
+          <div class="skill-group">
+            <h3 class="skill-group-title">
+              <span class="group-icon-dot"></span>
+              Frameworks & Backends
+            </h3>
+            <div class="skill-pills-wrap">
+              <span class="skill-pill">FastAPI</span>
+              <span class="skill-pill">Next.js 14 (App Router)</span>
+              <span class="skill-pill">React</span>
+              <span class="skill-pill">Node.js</span>
+              <span class="skill-pill">aiogram 3.7</span>
+              <span class="skill-pill">Tailwind CSS</span>
+            </div>
+          </div>
+
+          <!-- 3. Databases & ORM -->
+          <div class="skill-group">
+            <h3 class="skill-group-title">
+              <span class="group-icon-dot"></span>
+              Databases & Storage
+            </h3>
+            <div class="skill-pills-wrap">
+              <span class="skill-pill">PostgreSQL</span>
+              <span class="skill-pill">Prisma ORM</span>
+              <span class="skill-pill">SQLite / aiosqlite</span>
+              <span class="skill-pill">Redis</span>
+              <span class="skill-pill">AWS S3 Storage</span>
+            </div>
+          </div>
+
+          <!-- 4. APIs & Protocols -->
+          <div class="skill-group">
+            <h3 class="skill-group-title">
+              <span class="group-icon-dot"></span>
+              APIs & Platforms
+            </h3>
+            <div class="skill-pills-wrap">
+              <span class="skill-pill">Telegram Bot API</span>
+              <span class="skill-pill">YouTube Data API v3</span>
+              <span class="skill-pill">Instagram Graph API</span>
+              <span class="skill-pill">TikTok Content API</span>
+              <span class="skill-pill">OpenAI API (GPT-4)</span>
+              <span class="skill-pill">OAuth 2.0 Auth</span>
+            </div>
+          </div>
+
+          <!-- 5. Cloud & Infrastructure -->
+          <div class="skill-group">
+            <h3 class="skill-group-title">
+              <span class="group-icon-dot"></span>
+              Cloud & DevOps
+            </h3>
+            <div class="skill-pills-wrap">
+              <span class="skill-pill">AWS (S3, EC2)</span>
+              <span class="skill-pill">Docker & Compose</span>
+              <span class="skill-pill">GitHub Actions</span>
+              <span class="skill-pill">GitHub Pages</span>
+              <span class="skill-pill">Linux (Ubuntu)</span>
+              <span class="skill-pill">Nginx</span>
+            </div>
+          </div>
+
+          <!-- 6. AI & Automation -->
+          <div class="skill-group">
+            <h3 class="skill-group-title">
+              <span class="group-icon-dot"></span>
+              AI & Automation
+            </h3>
+            <div class="skill-pills-wrap">
+              <span class="skill-pill">Generative AI Media</span>
+              <span class="skill-pill">AI Automated Evaluation</span>
+              <span class="skill-pill">Asyncio Background Tasks</span>
+              <span class="skill-pill">Cron Schedulers</span>
+              <span class="skill-pill">Web Scraping</span>
+              <span class="skill-pill">WebGL / Three.js</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         7. AI & CREATIVE LAB (SECONDARY CINEMATIC VISUAL)
+         ========================================================================= -->
+    <section class="section-space" id="lab">
+      <div class="container">
+        <div class="section-heading-wrap">
+          <span class="section-label">06 / EXPERIMENTAL LAB</span>
+          <h2 class="section-title">Creative Coding & Neural Motion Studies.</h2>
+          <p class="section-subtitle">
+            Exploring the frontiers of generative video workflows, real-time WebGL shaders, and audio-reactive digital interfaces.
+          </p>
+        </div>
+
+        <!-- Secondary Cinematic Visual Hero Box -->
+        <div class="lab-visual-hero">
+          <div id="secondary-visual-container"></div>
+          <div class="lab-visual-overlay">
+            <div>
+              <div class="lab-visual-title">Chrome Kinetic Sculpture & Energy Orb</div>
+              <div class="lab-visual-desc">Interactive dynamic canvas with blue, violet & champagne reflections.</div>
+            </div>
+            <span class="badge-meta"><span class="dot-indicator"></span> 60 FPS GPU ACCELERATED</span>
+          </div>
+        </div>
+
+        <div class="lab-cards-grid">
+          <div class="lab-card">
+            <span class="lab-card-num">EXP 01</span>
+            <h3 class="lab-card-title">Generative AI Video Pipelines</h3>
+            <p class="lab-card-desc">
+              Custom multi-stage prompting and interpolation pipelines utilizing Stable Diffusion and ComfyUI for editorial visual assets and video transitions.
+            </p>
+          </div>
+
+          <div class="lab-card">
+            <span class="lab-card-num">EXP 02</span>
+            <h3 class="lab-card-title">WebGL Optical Glass Shaders</h3>
+            <p class="lab-card-desc">
+              Parametric crystal geometries with physical transmission, chromatic dispersion, and real-time orbital light dynamics running smoothly on modern WebGL.
+            </p>
+          </div>
+
+          <div class="lab-card">
+            <span class="lab-card-num">EXP 03</span>
+            <h3 class="lab-card-title">Telegram Mini App Architectures</h3>
+            <p class="lab-card-desc">
+              Unifying Next.js 14 web application frontends with native Telegram WebApp SDK contexts, instant initData cryptographic validation, and persistent sessions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         8. JOURNEY & TIMELINE
+         ========================================================================= -->
+    <section class="section-space" id="journey">
+      <div class="container">
+        <div class="section-heading-wrap">
+          <span class="section-label">07 / JOURNEY & FOCUS</span>
+          <h2 class="section-title">Engineering Evolution.</h2>
+          <p class="section-subtitle">
+            How economics, software engineering, and AI converged into a unified methodology.
+          </p>
+        </div>
+
+        <div class="timeline-track">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-phase">PHASE 01 · FOUNDATIONS</div>
+            <h3 class="timeline-title">Digital Economy & Market Systems Analysis</h3>
+            <p class="timeline-desc">
+              Focused on the economic efficiencies of digital platforms, algorithmic systems, and data distribution models. Understanding software as an economic multiplier for modern digital enterprises.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-phase">PHASE 02 · BACKEND & DATA</div>
+            <h3 class="timeline-title">Backend Architecture & API Systems</h3>
+            <p class="timeline-desc">
+              Deep dive into Python, FastAPI, and database architecture (PostgreSQL, SQLite, Redis). Engineering secure JWT authentication mechanisms, async queues, and webhook listeners.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-phase">PHASE 03 · AI PLATFORMS</div>
+            <h3 class="timeline-title">Full-Stack AI Products & Mini Apps</h3>
+            <p class="timeline-desc">
+              Architected CertLingo / EduTest and DeutschLab: combining Next.js 14, Prisma ORM, and OpenAI evaluation models with Telegram Mini Apps to deliver real-time international certification testing.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-phase">PHASE 04 · AUTOMATION</div>
+            <h3 class="timeline-title">Autonomous Cloud Pipelines & CrosspostBot</h3>
+            <p class="timeline-desc">
+              Engineered high-reliability social media distribution networks connecting YouTube, Instagram, and TikTok with AWS S3 storage and automated background schedulers.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         9. SERVICES / CAPABILITIES
+         ========================================================================= -->
+    <section class="section-space" id="services">
+      <div class="container">
+        <div class="section-heading-wrap">
+          <span class="section-label">08 / CAPABILITIES</span>
+          <h2 class="section-title">What I Build.</h2>
+          <p class="section-subtitle">
+            Autonomous systems, modern web platforms, and tailored technical workflows.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <span class="service-num">01</span>
+            <h3 class="service-title">High-Performance Web Applications</h3>
+            <p class="service-desc">
+              End-to-end full-stack applications using Next.js 14, React, TypeScript, and Tailwind CSS. Built for speed, responsiveness, and clean component architecture.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <span class="service-num">02</span>
+            <h3 class="service-title">Backend & API Engineering</h3>
+            <p class="service-desc">
+              Asynchronous FastAPI and Python backends with PostgreSQL, Prisma ORM, aiosqlite, and Docker containerization. Resilient REST APIs and webhook listeners.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <span class="service-num">03</span>
+            <h3 class="service-title">Multi-Platform Automation Engines</h3>
+            <p class="service-desc">
+              Automating cross-platform media pipelines (YouTube, Instagram, TikTok) with OAuth 2.0 token management, AWS S3 storage staging, and cron schedulers.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <span class="service-num">04</span>
+            <h3 class="service-title">Telegram Mini Apps & Bots</h3>
+            <p class="service-desc">
+              Interactive Telegram WebApps, aiogram 3 bots, quiz engines, automated customer workflows, and administrative dashboards with role-based auth.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <span class="service-num">05</span>
+            <h3 class="service-title">AI Workflows & Integration</h3>
+            <p class="service-desc">
+              Integrating OpenAI GPT evaluation engines for automated scoring, language translation pipelines, and generative media production workflows.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <span class="service-num">06</span>
+            <h3 class="service-title">Cloud Infrastructure & DevOps</h3>
+            <p class="service-desc">
+              Deploying scalable microservices on Linux (Ubuntu), AWS S3/EC2, Docker Compose, Nginx reverse proxies, and automated GitHub CI/CD workflows.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         10. CONTACT / CTA SECTION
+         ========================================================================= -->
+    <section class="section-space" id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <span class="section-label" style="justify-content: center;">09 / COLLABORATION</span>
+          <h2 class="contact-cta-title">LET'S BUILD SOMETHING EXTRAORDINARY.</h2>
+          <p class="contact-cta-desc">
+            Open for software architecture, automation pipelines, digital products, and high-impact technical initiatives.
+          </p>
+
+          <div class="contact-channels-row">
+            <button type="button" class="contact-btn" id="copy-email-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span>junaydullayev06@gmail.com</span>
+            </button>
+
+            <a href="https://t.me/junaydullayev" target="_blank" rel="noopener noreferrer" class="contact-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+              <span>TELEGRAM: @junaydullayev</span>
+            </a>
+
+            <a href="https://github.com/DeHaad" target="_blank" rel="noopener noreferrer" class="contact-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+              </svg>
+              <span>GITHUB: @DeHaad</span>
+            </a>
+          </div>
+
+          <div class="contact-footer-meta">
+            TASHKENT, UZBEKISTAN · UTC+5 · DIRECT EMAIL RESPONSE WITHIN 24 HOURS
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       11. SITE FOOTER
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-brand-title">ALI AKBAR JUNAYDULLAYEV</div>
+        <div class="footer-brand-sub">Digital Economy × Software Architecture × AI Systems</div>
+      </div>
+
+      <div class="footer-links-row">
+        <a href="https://github.com/DeHaad" target="_blank" rel="noopener noreferrer">GITHUB</a>
+        <a href="https://t.me/junaydullayev" target="_blank" rel="noopener noreferrer">TELEGRAM</a>
+        <a href="mailto:junaydullayev06@gmail.com">EMAIL</a>
+        <a href="https://junaydullayev.uz">JUNAYDULLAYEV.UZ</a>
+      </div>
+
+      <div class="badge-meta">
+        © 2026 ALI AKBAR. ALL RIGHTS RESERVED.
       </div>
     </div>
+  </footer>
 
-    <!-- Yer -->
-    <div class='solar_systm'>
-      <div class='earth planet'>
-        <div class='moon moon'><h3>Yo'ldosh</h3><h2>Oy</h2></div>
-        <div class='m trajectory'></div>
-        <div class='earth planet_description'>
-          <h2>Sayyora</h2>
-          <h1>Yer</h1>
-          <p>Bizning uyimiz. U atmosferasida erkin kislorod, sirtida suyuq suv okeanlari va, albatta, hayot mavjud bo'lgan bizga ma'lum yagona sayyoradir.</p>
-          <label for='readEarth'><a>Batafsil<span>...</span></a></label>
-        </div>
-        <div class='overlay'></div>
+  <!-- =========================================================================
+       12. PROJECT DETAIL MODAL / DRAWER
+       ========================================================================= -->
+  <div class="modal-overlay" id="project-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-title">
+    <div class="modal-window">
+      <button class="modal-close-btn" id="modal-close-btn" type="button" aria-label="Close project modal">✕</button>
+      
+      <div class="modal-header-meta">
+        <span class="modal-num" id="modal-num">01</span>
+        <span class="modal-badge" id="modal-badge">FEATURED</span>
       </div>
-    </div>
 
-    <!-- Mars -->
-    <div class='solar_systm'>
-      <div class='mars planet'>
-        <div class='deimos moon'><h3>Yo'ldosh</h3><h2>Deymos</h2></div>
-        <div class='d trajectory'></div>
-        <div class='moon phoebos'><h3>Yo'ldosh</h3><h2>Fobos</h2></div>
-        <div class='p trajectory'></div>
-        <div class='mars planet_description'>
-          <h2>Sayyora</h2>
-          <h1>Mars</h1>
-          <p>Quyoshdan to'rtinchi va quyosh tizimidagi ikkinchi eng kichik sayyora. Rim urush xudosi sharafiga nomlangan va ko'pincha "Qizil sayyora" deb ataladi.</p>
-          <label for='readMars'><a>Batafsil<span>...</span></a></label>
-        </div>
-        <div class='overlay'></div>
+      <h3 class="modal-title" id="modal-title">CROSSPOSTBOT</h3>
+      <div class="modal-subtitle" id="modal-subtitle">Multi-Platform Social Media Automation</div>
+
+      <div class="modal-section-block">
+        <div class="modal-section-title">PROJECT OVERVIEW</div>
+        <p class="modal-body-p" id="modal-overview"></p>
       </div>
-    </div>
 
-    <!-- Yupiter -->
-    <div class='solar_systm'>
-      <div class='jupiter planet'>
-        <div class='lo moon'><h3>Yo'ldosh</h3><h2>Io</h2></div>
-        <div class='europa moon'><h3>Yo'ldosh</h3><h2>Yevropa</h2></div>
-        <div class='ganymede moon'><h3>Yo'ldosh</h3><h2>Ganimed</h2></div>
-        <div class='lop trajectory'></div>
-        <div class='eu trajectory'></div>
-        <div class='ga trajectory'></div>
-        <div class='jupiter planet_description'>
-          <h2>Sayyora</h2>
-          <h1>Yupiter</h1>
-          <p>Yupiter quyosh tizimidagi eng ulkan sayyora. U Rim mifologiyasidagi xudolar podshohi sharafiga nomlangan. Uning massasi tizimdagi barcha sayyoralar yig'indisidan ham katta.</p>
-          <label for='readJupiter'><a>Batafsil<span>...</span></a></label>
-        </div>
-        <div class='overlay'></div>
+      <div class="modal-section-block">
+        <div class="modal-section-title">THE PROBLEM</div>
+        <p class="modal-body-p" id="modal-problem"></p>
       </div>
-    </div>
 
-    <!-- Saturn -->
-    <div class='solar_systm'>
-      <div class='planet saturn'>
-        <div class='moon titan'><h3>Yo'ldosh</h3><h2>Titan</h2></div>
-        <div class='ti trajectory'></div>
-        <div class='planet_description saturn'>
-          <h2>Sayyora</h2>
-          <h1>Saturn</h1>
-          <p>Quyoshdan oltinchi va quyosh tizimidagi ikkinchi eng yirik sayyora. O'zining ajoyib halqalari bilan mashhur. U asosan gazlardan tashkil topgan.</p>
-          <label for='readSaturn'><a>Batafsil<span>...</span></a></label>
-        </div>
-        <div class='overlay'></div>
+      <div class="modal-section-block">
+        <div class="modal-section-title">THE ARCHITECTURAL SOLUTION</div>
+        <p class="modal-body-p" id="modal-solution"></p>
       </div>
-    </div>
 
-    <!-- Uran -->
-    <div class='solar_systm'>
-      <div class='planet uranus'>
-        <div class='miranda moon'><h3>Yo'ldosh</h3><h2>Miranda</h2></div>
-        <div class='ariel moon'><h3>Yo'ldosh</h3><h2>Ariel</h2></div>
-        <div class='mir trajectory'></div>
-        <div class='ari trajectory'></div>
-        <div class='planet_description uranus'>
-          <h2>Sayyora</h2>
-          <h1>Uran</h1>
-          <p>Olimlar tomonidan kashf etilgan birinchi sayyora. Uran o'zining keskin og'ishi bilan ajralib turadi - u xuddi yonboshlab aylanayotganga o'xshaydi.</p>
-          <label for='readUranus'><a>Batafsil<span>...</span></a></label>
-        </div>
-        <div class='overlay'></div>
+      <div class="modal-section-block">
+        <div class="modal-section-title">SYSTEM ARCHITECTURE PIPELINE</div>
+        <div id="modal-arch-box"></div>
       </div>
-    </div>
 
-    <!-- Neptun -->
-    <div class='solar_systm'>
-      <div class='neptune planet'>
-        <div class='moon triton'><h3>Yo'ldosh</h3><h2>Triton</h2></div>
-        <div class='tri trajectory'></div>
-        <div class='neptune planet_description'>
-          <h2>Sayyora</h2>
-          <h1>Neptun</h1>
-          <p>Quyoshdan eng uzoqda joylashgan sayyora. U teleskopda ko'rilishidan oldin matematik hisob-kitoblar yordamida bashorat qilingan birinchi sayyoradir.</p>
-          <label for='readNeptune'><a>Batafsil<span>...</span></a></label>
-        </div>
-        <div class='overlay'></div>
+      <div class="modal-section-block">
+        <div class="modal-section-title">TECHNOLOGY STACK</div>
+        <div class="modal-tech-list" id="modal-tech-list"></div>
       </div>
-    </div>
 
-    <!-- Pluton -->
-    <div class='solar_systm'>
-      <div class='planet pluto'>
-        <div class='planet_description pluto'>
-          <h2>Pakana sayyora</h2>
-          <h1>Pluton</h1>
-          <p>Bir paytlar to'qqizinchi sayyora hisoblangan Pluton, hozirda quyosh tizimidagi eng katta pakana sayyora deb tan olingan.</p>
-          <label for='readPluto'><a>Batafsil<span>...</span></a></label>
-        </div>
-        <div class='overlay'></div>
+      <div class="modal-section-block">
+        <div class="modal-section-title">KEY METRICS & PERFORMANCE</div>
+        <div class="modal-metrics-grid" id="modal-metrics-grid"></div>
+      </div>
+
+      <div style="margin-top: 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+        <a href="https://github.com/DeHaad" target="_blank" rel="noopener noreferrer" class="btn-primary" id="modal-github-link">
+          <span>VIEW GITHUB REPOSITORY</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+        </a>
       </div>
     </div>
   </div>
 
-  <!-- Batafsil ma'lumot panellari (Faqat bittasini misol qilib ko'rsataman, boshqalari ham shu uslubda tarjima qilindi) -->
-  
-  <!-- Merkuriy Paneli -->
-  <input class='read' id='readMercury' type='radio' name='mercuryRead'>
-  <label class='closeBig' for='closeMercury'></label>
-  <input class='read' id='closeMercury' type='radio' name='mercuryRead'>
-  <div class='panel'>
-    <h1>Merkuriy</h1>
-    <p>Merkuriy Quyoshga eng yaqin sayyoradir. U Quyosh atrofini atigi 88 kunda aylanib chiqadi. Bu yerda bir kun Yer hisobida 176 kunga teng.</p>
-    <h2>Merkuriyning qiziqarli jihatlari:</h2>
-    <p>U quyosh tizimidagi eng kichik sayyora. Merkuriyning atmosferasi deyarli yo'q, shuning uchun kunduzi harorat +430°C gacha ko'tarilsa, kechasi -180°C gacha tushadi.</p>
-    <img src='https://i2.wp.com/www.astronomytrek.com/wp-content/uploads/2012/11/mercury-1.jpg?fit=678%2C381&ssl=1'>
-  </div>
-
-  <!-- Yer Paneli -->
-  <input class='read' id='readEarth' type='radio' name='earthRead'>
-  <label class='closeBig' for='closeEarth'></label>
-  <input class='read' id='closeEarth' type='radio' name='earthRead'>
-  <div class='panel'>
-    <h1>Yer - bizning uyimiz</h1>
-    <p>Yer Quyoshdan uchinchi sayyora bo'lib, hayot mavjud bo'lgan yagona ma'lum osmon jismidir. Yerning magnit maydoni bizni zararli quyosh shamollaridan himoya qiladi.</p>
-    <h2>Asosiy ma'lumotlar:</h2>
-    <ul>
-      <li>Yuzasining 71% qismi suv bilan qoplangan.</li>
-      <li>Atmosferasi 78% azot va 21% kisloroddan iborat.</li>
-      <li>Yagona tabiiy yo'ldoshi - Oy.</li>
-    </ul>
-    <img src='https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg?auto=compress&cs=tinysrgb&h=350'>
-  </div>
-
-  <!-- Qolgan panellar (Mars, Yupiter va h.k.) xuddi shu tarzda 'panel' divi ichida tarjima qilinadi -->
-
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="js/projects-data.js"></script>
+  <script src="js/hero-visual.js"></script>
+  <script src="js/secondary-visual.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

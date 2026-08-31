@@ -1,0 +1,114 @@
+/* ==========================================================================
+   CINEMATIC ANIMATIONS & ACCESSIBILITY
+   Ali Akbar Junaydullayev — Digital Economy × Software × AI
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. SCROLL REVEAL UTILITIES
+   -------------------------------------------------------------------------- */
+.reveal-on-scroll,
+.section-heading-wrap,
+.about-card,
+.lab-card,
+.skill-group,
+.timeline-item,
+.service-card {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.is-revealed {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Stagger delays */
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+
+/* --------------------------------------------------------------------------
+   2. KEYFRAME ANIMATIONS
+   -------------------------------------------------------------------------- */
+@keyframes ambientGlowPulse {
+  0% {
+    opacity: 0.4;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.04);
+  }
+  100% {
+    opacity: 0.4;
+    transform: scale(0.96);
+  }
+}
+
+@keyframes glassSheenSweep {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes slowOrbitalFloat {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+.float-slow {
+  animation: slowOrbitalFloat 8s ease-in-out infinite;
+}
+
+/* --------------------------------------------------------------------------
+   3. ACCESSIBILITY & PREFERS-REDUCED-MOTION
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal-on-scroll,
+  .section-heading-wrap,
+  .about-card,
+  .lab-card,
+  .skill-group,
+  .timeline-item,
+  .service-card {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .float-slow {
+    animation: none !important;
+  }
+
+  .sound-wave-bar.animating {
+    animation: none !important;
+    height: 8px !important;
+  }
+
+  .cursor-dot,
+  .cursor-follower {
+    display: none !important;
+  }
+}
