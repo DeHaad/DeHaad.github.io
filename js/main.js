@@ -1,5 +1,5 @@
 /**
- * MAIN CLIENT APPLICATION LOGIC
+ * MAIN CLIENT APPLICATION LOGIC V2
  * Navigation, Project rendering, Filtering, Interactive Modals,
  * Pipeline Inspector, Scroll Animations, and Contact utilities.
  */
@@ -27,7 +27,6 @@
     const mobileMenu = document.getElementById('mobile-menu');
     const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
 
-    // Sticky header background blur on scroll
     window.addEventListener('scroll', () => {
       if (window.scrollY > 40) {
         header?.classList.add('header-scrolled');
@@ -37,7 +36,6 @@
       updateActiveNavLink();
     }, { passive: true });
 
-    // Mobile menu toggle
     if (mobileMenuBtn && mobileMenu) {
       mobileMenuBtn.addEventListener('click', () => {
         const isOpen = mobileMenu.classList.toggle('open');
@@ -47,7 +45,6 @@
         if (window.AppAudio) window.AppAudio.playClick(1000, 'sine', 0.03);
       });
 
-      // Close mobile menu on clicking any link
       navLinks.forEach(link => {
         link.addEventListener('click', () => {
           mobileMenu.classList.remove('open');
@@ -100,13 +97,13 @@
   }
 
   /* ==========================================================================
-     2. SELECTED WORK GRID & FILTERING
+     2. SELECTED WORK GRID & FILTERING V2
      ========================================================================== */
   let activeFilter = 'all';
 
   function initProjectsGrid() {
     const gridContainer = document.getElementById('projects-grid');
-    const filterButtons = document.querySelectorAll('.filter-btn');
+    const filterButtons = document.querySelectorAll('.filter-chip-btn');
 
     if (!gridContainer || typeof PROJECTS_DATA === 'undefined') return;
 
@@ -134,33 +131,31 @@
 
     projects.forEach((proj, idx) => {
       const card = document.createElement('article');
-      card.className = 'project-card fade-in-up';
-      card.style.animationDelay = `${idx * 0.1}s`;
+      card.className = 'editorial-project-card reveal-on-scroll';
+      card.style.transitionDelay = `${idx * 0.08}s`;
       card.setAttribute('data-id', proj.id);
       card.setAttribute('tabindex', '0');
       card.setAttribute('role', 'button');
-      card.setAttribute('aria-label', `View details for project ${proj.title}`);
+      card.setAttribute('aria-label', `View architectural details for ${proj.title}`);
 
-      // Tech badges markup
-      const techTags = proj.technologies.slice(0, 4).map(t => `<span class="tech-tag">${t}</span>`).join('');
+      const techTags = proj.technologies.slice(0, 4).map(t => `<span class="tech-pill-chip">${t}</span>`).join('');
 
       card.innerHTML = `
-        <div class="card-glass-glow"></div>
-        <div class="project-card-header">
-          <span class="project-num">${proj.number}</span>
-          <span class="project-badge">${proj.badge}</span>
+        <div class="project-top-meta">
+          <span class="project-index-num">${proj.number}</span>
+          <span class="signal-tag"><span class="signal-dot"></span> ${proj.badge}</span>
         </div>
-        <div class="project-card-body">
-          <span class="project-category-label">${proj.categoryLabel}</span>
-          <h3 class="project-card-title">${proj.title}</h3>
-          <p class="project-card-desc">${proj.shortDescription}</p>
+        <div class="project-body-content">
+          <span class="project-category-signal">${proj.categoryLabel}</span>
+          <h3 class="project-card-heading">${proj.title}</h3>
+          <p class="project-card-summary">${proj.shortDescription}</p>
         </div>
-        <div class="project-card-footer">
-          <div class="project-tech-list">
+        <div class="project-card-bottom-rail">
+          <div class="project-tech-badges-row">
             ${techTags}
-            ${proj.technologies.length > 4 ? `<span class="tech-tag more">+${proj.technologies.length - 4}</span>` : ''}
+            ${proj.technologies.length > 4 ? `<span class="tech-pill-chip">+${proj.technologies.length - 4}</span>` : ''}
           </div>
-          <div class="project-action-btn" aria-hidden="true">
+          <div class="project-direction-arrow" aria-hidden="true">
             <span>EXPLORE</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="7" y1="17" x2="17" y2="7"></line>
@@ -170,7 +165,6 @@
         </div>
       `;
 
-      // Open detail modal on click or Enter key
       card.addEventListener('click', () => openProjectModal(proj.id));
       card.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -187,7 +181,7 @@
      3. FEATURED PROJECT PIPELINE INSPECTOR (CROSSPOSTBOT)
      ========================================================================== */
   function initFeaturedPipeline() {
-    const nodes = document.querySelectorAll('.pipeline-node');
+    const nodes = document.querySelectorAll('.blueprint-node-card');
     const infoTitle = document.getElementById('pipeline-step-title');
     const infoDesc = document.getElementById('pipeline-step-desc');
     const infoTech = document.getElementById('pipeline-step-tech');
@@ -233,7 +227,7 @@
   }
 
   /* ==========================================================================
-     4. PROJECT DETAIL MODAL
+     4. PROJECT DETAIL MODAL / DRAWER V2
      ========================================================================== */
   const modalOverlay = document.getElementById('project-modal');
   let lastFocusedElement = null;
@@ -266,7 +260,6 @@
 
     lastFocusedElement = document.activeElement;
 
-    // Populate modal contents
     document.getElementById('modal-num').textContent = proj.number;
     document.getElementById('modal-badge').textContent = proj.badge;
     document.getElementById('modal-title').textContent = proj.title;
@@ -275,13 +268,11 @@
     document.getElementById('modal-problem').textContent = proj.problem;
     document.getElementById('modal-solution').textContent = proj.solution;
 
-    // Tech badges
     const techContainer = document.getElementById('modal-tech-list');
     if (techContainer) {
-      techContainer.innerHTML = proj.technologies.map(t => `<span class="modal-tech-pill">${t}</span>`).join('');
+      techContainer.innerHTML = proj.technologies.map(t => `<span class="modal-tech-pill-chip">${t}</span>`).join('');
     }
 
-    // Architecture diagram box
     const archContainer = document.getElementById('modal-arch-box');
     if (archContainer && proj.architecture) {
       archContainer.innerHTML = `
@@ -304,7 +295,6 @@
       `;
     }
 
-    // Metrics grid
     const metricsContainer = document.getElementById('modal-metrics-grid');
     if (metricsContainer && proj.metrics) {
       metricsContainer.innerHTML = proj.metrics.map(m => `
@@ -315,7 +305,6 @@
       `).join('');
     }
 
-    // Action links
     const githubLink = document.getElementById('modal-github-link');
     if (githubLink) {
       githubLink.href = proj.github || 'https://github.com/DeHaad';
@@ -357,15 +346,14 @@
           }
         });
       }, {
-        threshold: 0.12,
+        threshold: 0.1,
         rootMargin: '0px 0px -40px 0px'
       });
 
-      document.querySelectorAll('.reveal-on-scroll, .section-heading-wrap, .about-card, .lab-card, .skill-group, .timeline-item').forEach(el => {
+      document.querySelectorAll('.reveal-on-scroll, .section-editorial-header, .metric-panel, .capability-block, .experiment-spec-card, .skill-matrix-panel, .timeline-phase-node, .capability-card-v2').forEach(el => {
         revealObserver.observe(el);
       });
     } else {
-      // Fallback
       document.querySelectorAll('.reveal-on-scroll').forEach(el => el.classList.add('is-revealed'));
     }
   }
@@ -374,7 +362,7 @@
      6. STATS COUNTER ANIMATION
      ========================================================================== */
   function initStatsCounter() {
-    const statElements = document.querySelectorAll('.stat-number');
+    const statElements = document.querySelectorAll('.metric-display-num');
     if (!statElements.length) return;
 
     if ('IntersectionObserver' in window) {
@@ -414,11 +402,11 @@
   }
 
   /* ==========================================================================
-     7. 1-CLICK EMAIL COPY TOOL
+     7. 1-CLICK EMAIL COPY TOOL (UPDATED CONTACT)
      ========================================================================== */
   function initCopyEmail() {
     const copyBtn = document.getElementById('copy-email-btn');
-    const emailStr = 'junaydullayev06@gmail.com';
+    const emailStr = 'aliakbarjunaydullayev@gmail.com';
 
     if (!copyBtn) return;
 
@@ -438,7 +426,6 @@
           copyBtn.innerHTML = originalText;
         }, 2400);
       } catch (err) {
-        // Fallback to mailto
         window.location.href = `mailto:${emailStr}`;
       }
     });
@@ -448,19 +435,18 @@
      8. TECH SKILLS INTERACTION
      ========================================================================== */
   function initTechFilter() {
-    const skillPills = document.querySelectorAll('.skill-pill');
-    skillPills.forEach(pill => {
+    const matrixPills = document.querySelectorAll('.matrix-pill');
+    matrixPills.forEach(pill => {
       pill.addEventListener('mouseenter', () => {
-        skillPills.forEach(p => {
+        matrixPills.forEach(p => {
           if (p !== pill) p.style.opacity = '0.55';
         });
       });
       pill.addEventListener('mouseleave', () => {
-        skillPills.forEach(p => (p.style.opacity = '1'));
+        matrixPills.forEach(p => (p.style.opacity = '1'));
       });
     });
   }
 
-  // Expose modal trigger globally
   window.openProjectModal = openProjectModal;
 })();

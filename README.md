@@ -1,4 +1,4 @@
-# Ali Akbar Junaydullayev — Personal Portfolio & Creative Experience
+# Ali Akbar Junaydullayev — Personal Portfolio & Creative Technologist Experience
 
 > **Digital Economy Specialist × Software Developer × AI & Automation Builder**  
 > Live at [junaydullayev.uz](https://junaydullayev.uz/) | [DeHaad.github.io](https://dehaad.github.io/)
@@ -7,9 +7,9 @@
 
 ## 💎 Overview
 
-An editorial, cinematic personal portfolio showcasing production software architectures, multi-platform media automation engines, full-stack AI platforms, and creative WebGL shader experiments.
+An editorial, cinematic personal portfolio showcasing verified production software architectures, multi-platform media automation engines, full-stack AI platforms, and creative WebGL shader experiments.
 
-Designed with an ultra-minimalist dark aesthetic inspired by high-end digital studios and Apple product presentations.
+Designed with an ultra-minimalist dark aesthetic inspired by high-end digital studios, product design presentations, and editorial typography systems.
 
 ---
 
@@ -18,7 +18,7 @@ Designed with an ultra-minimalist dark aesthetic inspired by high-end digital st
 | Layer | Technologies |
 |---|---|
 | **Core** | Semantic HTML5, Modular CSS3 Design Tokens, Vanilla ES6+ |
-| **3D & Visuals** | Three.js (WebGL), 3D Optical Glass Crystal Geometry, Parametric Dispersion Shaders |
+| **3D & Visuals** | Three.js (WebGL), Sapphire Bloom / Optical Glass Crystal Lotus Geometry, Parametric Dispersion Shaders |
 | **Secondary Visual** | HTML5 2D GPU Canvas, Chrome Kinetic Sculptures, Interactive Plasma Orb |
 | **Audio** | Web Audio API (Synthesized UI Interaction Click design) + Ambient Soundtrack (`space-bg.mp3`) |
 | **Hosting & CI/CD** | GitHub Pages (Custom Domain `junaydullayev.uz` with HTTPS) |
@@ -54,9 +54,9 @@ Open [http://localhost:8000](http://localhost:8000) in your browser.
 ## 📬 Contact & Links
 
 - **Domain:** [https://junaydullayev.uz](https://junaydullayev.uz)
-- **Telegram:** [@junaydullayev](https://t.me/junaydullayev)
+- **Telegram:** [@ALLAKBARUZ](https://t.me/ALLAKBARUZ)
 - **GitHub:** [@DeHaad](https://github.com/DeHaad)
-- **Email:** `junaydullayev06@gmail.com`
+- **Email:** `aliakbarjunaydullayev@gmail.com`
 
 ---
 

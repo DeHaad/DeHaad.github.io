@@ -1,7 +1,7 @@
 /**
- * SECONDARY CINEMATIC VISUAL: CHROME HANDS & GLOWING ENERGY ORB
- * Metallic chrome sculptural forms reaching toward a pulsating glowing plasma orb
- * with blue, violet, and champagne-gold particle filaments and specular highlights.
+ * SECONDARY CINEMATIC VISUAL V2: CHROME HANDS & GLOWING ENERGY ORB
+ * Metallic chrome sculptural contours reaching toward a pulsating plasma energy orb
+ * with sapphire, amethyst, and champagne-gold specular highlights and orbital filaments.
  */
 
 (function () {
@@ -28,16 +28,16 @@
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Particle energy filaments
-  const PARTICLE_COUNT = 65;
+  // Orbital energy filaments & particles
+  const PARTICLE_COUNT = 75;
   const particles = [];
 
   for (let i = 0; i < PARTICLE_COUNT; i++) {
     particles.push({
       angle: Math.random() * Math.PI * 2,
-      distance: 30 + Math.random() * 160,
-      speed: 0.005 + Math.random() * 0.012,
-      radius: 0.8 + Math.random() * 2.2,
+      distance: 28 + Math.random() * 175,
+      speed: 0.006 + Math.random() * 0.014,
+      radius: 0.75 + Math.random() * 2.4,
       colorType: Math.random(),
       pulseOffset: Math.random() * Math.PI
     });
@@ -66,89 +66,87 @@
     ctx.translate(originX, originY);
     if (flip) ctx.scale(-1, 1);
 
-    // Chrome gradient with blue, violet & champagne specular highlights
-    const chromeGrad = ctx.createLinearGradient(-150, -80, 120, 100);
-    chromeGrad.addColorStop(0.0, '#0f172a');
-    chromeGrad.addColorStop(0.2, '#334155');
-    chromeGrad.addColorStop(0.4, '#94a3b8');
+    // Chrome reflection gradient with sapphire, violet & champagne highlights
+    const chromeGrad = ctx.createLinearGradient(-160, -90, 130, 110);
+    chromeGrad.addColorStop(0.0, '#09090d');
+    chromeGrad.addColorStop(0.2, '#1e293b');
+    chromeGrad.addColorStop(0.4, '#64748b');
     chromeGrad.addColorStop(0.55, '#f8fafc'); // Pure specular highlight
     chromeGrad.addColorStop(0.7, '#6366f1'); // Indigo reflection
     chromeGrad.addColorStop(0.85, '#a855f7'); // Violet reflection
-    chromeGrad.addColorStop(0.95, '#dfb15b'); // Subtle champagne gold rim
-    chromeGrad.addColorStop(1.0, '#09090b');
+    chromeGrad.addColorStop(0.95, '#dfb15b'); // Champagne gold rim
+    chromeGrad.addColorStop(1.0, '#040407');
 
     ctx.strokeStyle = chromeGrad;
-    ctx.lineWidth = 2.2;
+    ctx.lineWidth = 2.4;
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
 
-    // Articulated cybernetic / sculptural hand contours reaching toward center
-    const reachOffset = Math.sin(t * 0.8 + (flip ? 1 : 0)) * 6;
+    const reachOffset = Math.sin(t * 0.85 + (flip ? 1.2 : 0)) * 7;
 
     // Wrist / Forearm base
     ctx.beginPath();
-    ctx.moveTo(-180, 100);
-    ctx.quadraticCurveTo(-110, 60, -70, 35);
+    ctx.moveTo(-190, 105);
+    ctx.quadraticCurveTo(-115, 65, -75, 38);
     ctx.stroke();
 
     ctx.beginPath();
-    ctx.moveTo(-170, 130);
-    ctx.quadraticCurveTo(-90, 80, -50, 45);
+    ctx.moveTo(-180, 135);
+    ctx.quadraticCurveTo(-95, 85, -55, 48);
     ctx.stroke();
 
     // Palm structure
     ctx.beginPath();
-    ctx.moveTo(-70, 35);
-    ctx.lineTo(-20, 15);
-    ctx.lineTo(20, 5 + reachOffset);
-    ctx.lineTo(-10, -25);
-    ctx.lineTo(-60, -10);
+    ctx.moveTo(-75, 38);
+    ctx.lineTo(-22, 16);
+    ctx.lineTo(22, 6 + reachOffset);
+    ctx.lineTo(-12, -26);
+    ctx.lineTo(-65, -12);
     ctx.closePath();
-    ctx.fillStyle = 'rgba(15, 23, 42, 0.4)';
+    ctx.fillStyle = 'rgba(10, 15, 30, 0.45)';
     ctx.fill();
     ctx.stroke();
 
     // Finger 1 (Index reaching to orb)
     ctx.beginPath();
-    ctx.moveTo(20, 5 + reachOffset);
-    ctx.quadraticCurveTo(60, -10, 105 + reachOffset, -8);
+    ctx.moveTo(22, 6 + reachOffset);
+    ctx.quadraticCurveTo(65, -12, 112 + reachOffset, -10);
     ctx.stroke();
 
-    // Finger 1 joint node
     ctx.beginPath();
-    ctx.arc(60, -10, 3.5, 0, Math.PI * 2);
+    ctx.arc(65, -12, 3.6, 0, Math.PI * 2);
     ctx.fillStyle = '#38bdf8';
     ctx.fill();
 
     // Finger 2 (Middle finger reaching furthest)
     ctx.beginPath();
-    ctx.moveTo(18, -8 + reachOffset);
-    ctx.quadraticCurveTo(70, -32, 125 + reachOffset, -28);
+    ctx.moveTo(20, -10 + reachOffset);
+    ctx.quadraticCurveTo(75, -34, 132 + reachOffset, -30);
     ctx.stroke();
 
     ctx.beginPath();
-    ctx.arc(70, -32, 3.8, 0, Math.PI * 2);
+    ctx.arc(75, -34, 4.0, 0, Math.PI * 2);
     ctx.fillStyle = '#a855f7';
     ctx.fill();
 
     // Finger 3 (Ring finger)
     ctx.beginPath();
-    ctx.moveTo(10, -20 + reachOffset);
-    ctx.quadraticCurveTo(55, -48, 98 + reachOffset, -50);
+    ctx.moveTo(12, -22 + reachOffset);
+    ctx.quadraticCurveTo(58, -50, 105 + reachOffset, -52);
     ctx.stroke();
 
     // Thumb (Opposed grip)
     ctx.beginPath();
-    ctx.moveTo(-10, 30);
-    ctx.quadraticCurveTo(25, 45, 55 + reachOffset * 0.5, 30);
+    ctx.moveTo(-12, 32);
+    ctx.quadraticCurveTo(28, 48, 60 + reachOffset * 0.5, 32);
     ctx.stroke();
 
     // Specular node at fingertip
     ctx.beginPath();
-    ctx.arc(125 + reachOffset, -28, 2.2, 0, Math.PI * 2);
+    ctx.arc(132 + reachOffset, -30, 2.4, 0, Math.PI * 2);
     ctx.fillStyle = '#f8fafc';
     ctx.shadowColor = '#38bdf8';
-    ctx.shadowBlur = 12;
+    ctx.shadowBlur = 14;
     ctx.fill();
     ctx.shadowBlur = 0;
 
@@ -156,28 +154,28 @@
   }
 
   function drawEnergyOrb(cx, cy, t) {
-    const pulse = Math.sin(t * 1.5) * 6;
-    const baseRadius = 38 + pulse;
+    const pulse = Math.sin(t * 1.6) * 7;
+    const baseRadius = 40 + pulse;
 
     // 1. Ambient Outer Halo
-    const haloGrad = ctx.createRadialGradient(cx, cy, 5, cx, cy, baseRadius * 3.2);
-    haloGrad.addColorStop(0.0, 'rgba(56, 189, 248, 0.45)');
-    haloGrad.addColorStop(0.3, 'rgba(168, 85, 247, 0.28)');
-    haloGrad.addColorStop(0.65, 'rgba(99, 102, 241, 0.12)');
-    haloGrad.addColorStop(0.85, 'rgba(223, 177, 91, 0.06)');
-    haloGrad.addColorStop(1.0, 'rgba(5, 5, 7, 0)');
+    const haloGrad = ctx.createRadialGradient(cx, cy, 5, cx, cy, baseRadius * 3.4);
+    haloGrad.addColorStop(0.0, 'rgba(56, 189, 248, 0.48)');
+    haloGrad.addColorStop(0.3, 'rgba(168, 85, 247, 0.3)');
+    haloGrad.addColorStop(0.65, 'rgba(99, 102, 241, 0.14)');
+    haloGrad.addColorStop(0.85, 'rgba(223, 177, 91, 0.07)');
+    haloGrad.addColorStop(1.0, 'rgba(2, 2, 4, 0)');
 
     ctx.fillStyle = haloGrad;
     ctx.beginPath();
-    ctx.arc(cx, cy, baseRadius * 3.2, 0, Math.PI * 2);
+    ctx.arc(cx, cy, baseRadius * 3.4, 0, Math.PI * 2);
     ctx.fill();
 
     // 2. High-energy Plasma Core
     const coreGrad = ctx.createRadialGradient(cx, cy, 0, cx, cy, baseRadius);
-    coreGrad.addColorStop(0.0, '#ffffff'); // Pure blinding center
-    coreGrad.addColorStop(0.25, '#67e8f9'); // Cyan glare
-    coreGrad.addColorStop(0.55, '#818cf8'); // Indigo energy
-    coreGrad.addColorStop(0.85, '#c084fc'); // Purple plasma
+    coreGrad.addColorStop(0.0, '#ffffff'); // Blinding center
+    coreGrad.addColorStop(0.22, '#67e8f9'); // Cyan glare
+    coreGrad.addColorStop(0.52, '#818cf8'); // Indigo energy
+    coreGrad.addColorStop(0.82, '#c084fc'); // Purple plasma
     coreGrad.addColorStop(1.0, 'rgba(99, 102, 241, 0)');
 
     ctx.fillStyle = coreGrad;
@@ -185,17 +183,17 @@
     ctx.arc(cx, cy, baseRadius, 0, Math.PI * 2);
     ctx.fill();
 
-    // 3. Orbital Prismatic Rings around Orb
+    // 3. Orbital Prismatic Gyro Rings
     for (let r = 0; r < 2; r++) {
       ctx.save();
       ctx.translate(cx, cy);
-      ctx.rotate(t * (0.4 + r * 0.2) * (r === 0 ? 1 : -1));
-      ctx.scale(1, 0.35 + r * 0.15);
+      ctx.rotate(t * (0.45 + r * 0.22) * (r === 0 ? 1 : -1));
+      ctx.scale(1, 0.36 + r * 0.16);
 
       ctx.beginPath();
-      ctx.arc(0, 0, baseRadius * 1.6 + r * 12, 0, Math.PI * 2);
-      ctx.strokeStyle = r === 0 ? 'rgba(56, 189, 248, 0.5)' : 'rgba(223, 177, 91, 0.4)';
-      ctx.lineWidth = 1.4;
+      ctx.arc(0, 0, baseRadius * 1.65 + r * 14, 0, Math.PI * 2);
+      ctx.strokeStyle = r === 0 ? 'rgba(56, 189, 248, 0.55)' : 'rgba(223, 177, 91, 0.45)';
+      ctx.lineWidth = 1.5;
       ctx.stroke();
       ctx.restore();
     }
@@ -205,29 +203,28 @@
       if (!prefersReducedMotion) {
         p.angle += p.speed;
       }
-      const dist = p.distance + Math.sin(t * 2 + p.pulseOffset) * 12;
+      const dist = p.distance + Math.sin(t * 2.2 + p.pulseOffset) * 14;
       const px = cx + Math.cos(p.angle) * dist;
-      const py = cy + Math.sin(p.angle) * dist * 0.75;
+      const py = cy + Math.sin(p.angle) * dist * 0.76;
 
       ctx.beginPath();
       ctx.arc(px, py, p.radius, 0, Math.PI * 2);
 
       if (p.colorType < 0.33) {
-        ctx.fillStyle = 'rgba(56, 189, 248, 0.85)';
+        ctx.fillStyle = 'rgba(56, 189, 248, 0.88)';
       } else if (p.colorType < 0.66) {
-        ctx.fillStyle = 'rgba(192, 132, 252, 0.85)';
+        ctx.fillStyle = 'rgba(192, 132, 252, 0.88)';
       } else {
-        ctx.fillStyle = 'rgba(223, 177, 91, 0.85)';
+        ctx.fillStyle = 'rgba(223, 177, 91, 0.88)';
       }
       ctx.fill();
 
-      // Delicate lightning thread connecting to core
-      if (Math.random() < 0.04 && !prefersReducedMotion) {
+      if (Math.random() < 0.045 && !prefersReducedMotion) {
         ctx.beginPath();
         ctx.moveTo(cx, cy);
         ctx.lineTo(px, py);
-        ctx.strokeStyle = 'rgba(168, 85, 247, 0.25)';
-        ctx.lineWidth = 0.8;
+        ctx.strokeStyle = 'rgba(168, 85, 247, 0.28)';
+        ctx.lineWidth = 0.85;
         ctx.stroke();
       }
     });
@@ -241,30 +238,24 @@
 
     animId = requestAnimationFrame(render);
 
-    time += prefersReducedMotion ? 0.004 : 0.018;
+    time += prefersReducedMotion ? 0.004 : 0.019;
 
     mouse.x += (mouse.targetX - mouse.x) * 0.05;
     mouse.y += (mouse.targetY - mouse.y) * 0.05;
 
     ctx.clearRect(0, 0, width, height);
 
-    // Deep graphite background canvas fill with delicate vignetting
-    const bgGrad = ctx.createRadialGradient(width / 2, height / 2, 50, width / 2, height / 2, width * 0.65);
-    bgGrad.addColorStop(0, '#090912');
-    bgGrad.addColorStop(1, '#050507');
+    const bgGrad = ctx.createRadialGradient(width / 2, height / 2, 60, width / 2, height / 2, width * 0.68);
+    bgGrad.addColorStop(0, '#090910');
+    bgGrad.addColorStop(1, '#020204');
     ctx.fillStyle = bgGrad;
     ctx.fillRect(0, 0, width, height);
 
     const centerX = width / 2 + (mouse.x - width / 2) * 0.08;
     const centerY = height / 2 + (mouse.y - height / 2) * 0.08;
 
-    // Draw Left Chrome Hand reaching right
-    drawChromeHand(centerX - 190, centerY + 15, false, time);
-
-    // Draw Right Chrome Hand reaching left
-    drawChromeHand(centerX + 190, centerY + 15, true, time);
-
-    // Draw Central Pulsating Energy Orb
+    drawChromeHand(centerX - 200, centerY + 18, false, time);
+    drawChromeHand(centerX + 200, centerY + 18, true, time);
     drawEnergyOrb(centerX, centerY, time);
   }
 
